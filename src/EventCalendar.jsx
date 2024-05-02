@@ -6,12 +6,17 @@ export default function CalendarView(props) {
 	let container = useRef();
 
 	useEffect(() => {
-		new EventCalendar(container.current, {
+		const eventCalendarInstance = new EventCalendar(container.current, {
 			events: props.events,
 			date: props.date,
 		});
 
-		return () => (container.current.innerHTML = "");
+		return () => {
+			if (container.current) {
+				eventCalendarInstance.destructor();
+				container.current.innerHTML = "";
+			}
+		}
 	}, []);
 
 	return <div ref={container} style={{ width: "100%", height: "100%" }}></div>;
