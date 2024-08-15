@@ -2,22 +2,19 @@ import { useEffect, useRef } from "react";
 import { EventCalendar } from "@dhx/trial-eventcalendar";
 import "@dhx/trial-eventcalendar/dist/event-calendar.css";
 
-export default function CalendarView(props) {
+export default function EventCalendarComponent(props) {
 	let container = useRef();
 
 	useEffect(() => {
-		const eventCalendarInstance = new EventCalendar(container.current, {
+		const calendar = new EventCalendar(container.current, {
 			events: props.events,
-			date: props.date,
+			date: props.date
 		});
 
 		return () => {
-			if (container.current) {
-				eventCalendarInstance.destructor();
-				container.current.innerHTML = "";
-			}
+			calendar.destructor();
 		}
-	}, []);
+	});
 
 	return <div ref={container} style={{ width: "100%", height: "100%" }}></div>;
 }
