@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { EventCalendar } from "@dhx/trial-eventcalendar";
 import "@dhx/trial-eventcalendar/dist/event-calendar.css";
 
-export default function CalendarComponent(props) {
+export default function EventCalendarComponent(props) {
 	let container = useRef();
 
 	useEffect(() => {
