@@ -16,5 +16,5 @@ export default function EventCalendarComponent(props) {
 		}
 	});
 
-	return <div ref={container} style={{ width: "100%", height: "100%" }}></div>;
+	return <div ref={container} className="widget"></div>;
 }
